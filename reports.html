@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CityLens | Urban Planning</title>
+
+  <!-- DaisyUI / Tailwind -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Montserrat:wght@400;600;800&family=Poppins:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .logo-font {
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 2px;
+    }
+
+    .title-font {
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #1E293B;
+      border-radius: 10px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #0EA5E9;
+      border-radius: 10px;
+    }
+  </style>
+
+</head>
+
+<body class="text-gray-200 bg-gradient-to-b from-[#000000] via-[#100D0E] to-[#090040]">
+  <!-- navbar -->
+  <header class="bg-gradient-to-r from-[#000000] via-[#131621] to-[#000000] shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center p-2">
+      <!-- Logo -->
+      <div class="flex justify-center items-center gap-2">
+        <img class="h-12 w-12 text-center" src="./images/logo4.png" alt="">
+        <h1 class="text-2xl font-extrabold tracking-wider text-white logo-font">
+          City<span class="text-red-500">L</span>ens
+        </h1>
+      </div>
+
+      <!-- Search (hidden on mobile) -->
+      <label class="input hidden sm:flex items-center gap-2 bg-white/90 rounded-full px-4 h-8 border-none shadow-sm">
+        <svg class="h-4 w-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <circle cx="11" cy="11" r="8" stroke-width="2" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" stroke-width="2" />
+        </svg>
+        <input type="search" placeholder="Search region…"
+          class="bg-transparent text-gray-700 placeholder-gray-500 outline-none" />
+      </label>
+
+      <!-- Hamburger Button -->
+      <button id="mobile-menu-button" class="block md:hidden text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+      <!-- Nav Links -->
+      <div id="mobile-menu" class="hidden md:block">
+        <ul class="flex flex-col md:flex-row gap-6 font-medium text-white text-sm mt-2 md:mt-0">
+          <li><a href="index.html" id="nav-dashboard" class="hover:text-red-400 transition-colors">Dashboard</a></li>
+          <li><a href="map.html" id="nav-map" class="hover:text-red-400 transition-colors">Map View</a></li>
+          <li><a href="analytics.html" id="nav-analytics" class="hover:text-red-400 transition-colors">Analytics</a></li>
+          <li><a href="reports.html" id="nav-reports" class="hover:text-red-400 transition-colors">Reports</a></li>
+          <li><a href="citizen.html" class="hover:text-red-400 transition-colors">Citizen Mode</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-8">
+    <!-- Reports Section -->
+    <section id="reports" class="fade-in-up">
+      <h2 class="text-4xl font-bold text-white mb-8 title-font">Urban Reports</h2>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+        <!-- Report Filters -->
+        <div class="bg-[#0D1B2A]/80 rounded-2xl p-6 shadow-xl">
+          <h3 class="text-xl font-semibold text-white mb-4">Generate Report</h3>
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-300 mb-1">Report Type</label>
+              <select class="select select-bordered w-full bg-slate-800 border-slate-700 text-white">
+                <option>Urban Health Summary</option>
+                <option>Environmental Impact</option>
+                <option>Infrastructure Analysis</option>
+                <option>Population Dynamics</option>
+                <option>Risk Assessment</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-300 mb-1">Time Range</label>
+              <select class="select select-bordered w-full bg-slate-800 border-slate-700 text-white">
+                <option>Last 30 Days</option>
+                <option>Last 6 Months</option>
+                <option>Last Year</option>
+                <option>Last 5 Years</option>
+                <option>Custom Range</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-300 mb-1">Region</label>
+              <select class="select select-bordered w-full bg-slate-800 border-slate-700 text-white">
+                <option>All Regions</option>
+                <option>Dhaka Division</option>
+                <option>Chattogram Division</option>
+                <option>Khulna Division</option>
+                <option>Rajshahi Division</option>
+                <option>Sylhet Division</option>
+              </select>
+            </div>
+            <button class="btn btn-primary w-full bg-sky-600 border-sky-600 hover:bg-sky-700 mt-4">
+              Generate Report
+            </button>
+          </div>
+        </div>
+
+        <!-- Recent Reports -->
+        <div class="bg-[#0D1B2A]/80 rounded-2xl p-6 shadow-xl lg:col-span-2">
+          <h3 class="text-xl font-semibold text-white mb-4">Recent Reports</h3>
+          <div class="overflow-x-auto custom-scrollbar">
+            <table class="table w-full">
+              <thead>
+                <tr class="border-slate-700">
+                  <th class="text-slate-300 bg-slate-900/50">Report Name</th>
+                  <th class="text-slate-300 bg-slate-900/50">Date</th>
+                  <th class="text-slate-300 bg-slate-900/50">Region</th>
+                  <th class="text-slate-300 bg-slate-900/50">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-slate-700 hover:bg-slate-800/50">
+                  <td>Dhaka Urban Heat Island Analysis</td>
+                  <td>15 Nov 2023</td>
+                  <td>Dhaka Division</td>
+                  <td>
+                    <button class="btn btn-xs btn-outline btn-primary mr-2">View</button>
+                    <button class="btn btn-xs btn-outline btn-success">Download</button>
+                  </td>
+                </tr>
+                <tr class="border-slate-700 hover:bg-slate-800/50">
+                  <td>Air Quality Assessment Q3</td>
+                  <td>02 Nov 2023</td>
+                  <td>All Regions</td>
+                  <td>
+                    <button class="btn btn-xs btn-outline btn-primary mr-2">View</button>
+                    <button class="btn btn-xs btn-outline btn-success">Download</button>
+                  </td>
+                </tr>
+                <tr class="border-slate-700 hover:bg-slate-800/50">
+                  <td>Flood Risk Zones Mapping</td>
+                  <td>28 Oct 2023</td>
+                  <td>Coastal Areas</td>
+                  <td>
+                    <button class="btn btn-xs btn-outline btn-primary mr-2">View</button>
+                    <button class="btn btn-xs btn-outline btn-success">Download</button>
+                  </td>
+                </tr>
+                <tr class="border-slate-700 hover:bg-slate-800/50">
+                  <td>Green Infrastructure Progress</td>
+                  <td>15 Oct 2023</td>
+                  <td>Urban Centers</td>
+                  <td>
+                    <button class="btn btn-xs btn-outline btn-primary mr-2">View</button>
+                    <button class="btn btn-xs btn-outline btn-success">Download</button>
+                  </td>
+                </tr>
+                <tr class="border-slate-700 hover:bg-slate-800/50">
+                  <td>Population Density Report</td>
+                  <td>05 Oct 2023</td>
+                  <td>Major Cities</td>
+                  <td>
+                    <button class="btn btn-xs btn-outline btn-primary mr-2">View</button>
+                    <button class="btn btn-xs btn-outline btn-success">Download</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recommendations -->
+      <div class="bg-[#0D1B2A]/80 rounded-2xl p-6 shadow-xl">
+        <h3 class="text-xl font-semibold text-white mb-4">Planning Recommendations</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-slate-800/50 p-4 rounded-xl">
+            <h4 class="font-semibold text-sky-400 mb-2">🌿 Green Infrastructure</h4>
+            <ul class="text-sm space-y-2">
+              <li class="flex items-start">
+                <span class="text-green-400 mr-2">✓</span>
+                <span>Increase tree planting in central urban areas with less than 15% greenery coverage</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-2">✓</span>
+                <span>Develop 3 new parks in high-density residential zones</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-2">✓</span>
+                <span>Implement green roofing incentives for commercial buildings</span>
+              </li>
+            </ul>
+          </div>
+          <div class="bg-slate-800/50 p-4 rounded-xl">
+            <h4 class="font-semibold text-amber-400 mb-2">🌡️ Heat Mitigation</h4>
+            <ul class="text-sm space-y-2">
+              <li class="flex items-start">
+                <span class="text-green-400 mr-2">✓</span>
+                <span>Install cool pavement technology in identified heat island zones</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-2">✓</span>
+                <span>Create shaded pedestrian corridors in commercial districts</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-2">✓</span>
+                <span>Promote reflective roofing in industrial areas</span>
+              </li>
+            </ul>
+          </div>
+          <div class="bg-slate-800/50 p-4 rounded-xl">
+            <h4 class="font-semibold text-rose-400 mb-2">🚰 Flood Resilience</h4>
+            <ul class="text-sm space-y-2">
+              <li class="flex items-start">
+                <span class="text-green-400 mr-2">✓</span>
+                <span>Implement rainwater harvesting in flood-prone communities</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-2">✓</span>
+                <span>Restore natural drainage systems in 5 priority watersheds</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-2">✓</span>
+                <span>Develop early warning systems for high-risk flood zones</span>
+              </li>
+            </ul>
+          </div>
+          <div class="bg-slate-800/50 p-4 rounded-xl">
+            <h4 class="font-semibold text-purple-400 mb-2">🏭 Air Quality</h4>
+            <ul class="text-sm space-y-2">
+              <li class="flex items-start">
+                <span class="text-green-400 mr-2">✓</span>
+                <span>Create low-emission zones in city centers</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-2">✓</span>
+                <span>Accelerate transition to electric public transportation</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-2">✓</span>
+                <span>Implement industrial emission monitoring in critical areas</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <!-- footer -->
+  <footer class="bg-[#090040] text-white mt-16 p-4">
+    <div class="max-w-7xl mx-auto p-4 flex justify-between items-center text-sm">
+      <p>© 2025 CityLens | Urban Planning</p>
+      <p>Built with 🚀 Sustainable Insights</p>
+    </div>
+  </footer>
+
+  <script src="./reports.js"></script>
+</body>
+
+</html>

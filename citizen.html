@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CityLens | Citizen Mode</title>
+
+  <!-- Tailwind + DaisyUI -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+    }
+
+    .logo-font {
+      font-family: "Orbitron", sans-serif;
+      letter-spacing: 2px;
+    }
+
+    .title-font {
+      font-family: "Orbitron", sans-serif;
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body class="text-gray-200 bg-gradient-to-b from-[#000000] via-[#100D0E] to-[#090040]">
+    <!-- navbar -->
+  <header class="bg-gradient-to-r from-[#000000] via-[#131621] to-[#000000] shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center p-2">
+      <!-- Logo -->
+      <div class="flex justify-center items-center gap-2">
+        <img class="h-12 w-12 text-center" src="./images/logo4.png" alt="">
+        <h1 class="text-2xl font-extrabold tracking-wider text-white logo-font">
+          City<span class="text-red-500">L</span>ens
+        </h1>
+      </div>
+
+      <!-- Search (hidden on mobile) -->
+      <label class="input hidden sm:flex items-center gap-2 bg-white/90 rounded-full px-4 h-8 border-none shadow-sm">
+        <svg class="h-4 w-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <circle cx="11" cy="11" r="8" stroke-width="2" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" stroke-width="2" />
+        </svg>
+        <input type="search" placeholder="Search region…"
+          class="bg-transparent text-gray-700 placeholder-gray-500 outline-none" />
+      </label>
+
+      <!-- Hamburger Button -->
+      <button id="mobile-menu-button" class="block md:hidden text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+      <!-- Nav Links -->
+      <div id="mobile-menu" class="hidden md:block">
+        <ul class="flex flex-col md:flex-row gap-6 font-medium text-white text-sm mt-2 md:mt-0">
+          <li><a href="index.html" id="nav-dashboard" class="hover:text-red-400 transition-colors">Dashboard</a></li>
+          <li><a href="map.html" id="nav-map" class="hover:text-red-400 transition-colors">Map View</a></li>
+          <li><a href="analytics.html" id="nav-analytics" class="hover:text-red-400 transition-colors">Analytics</a></li>
+          <li><a href="reports.html" id="nav-reports" class="hover:text-red-400 transition-colors">Reports</a></li>
+          <li><a href="citizen.html" class="hover:text-red-400 transition-colors">Citizen Mode</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Citizen Reporting Section -->
+  <main class="max-w-5xl mx-auto px-6 py-12">
+    <h1 class="text-5xl font-bold mb-8 title-font text-green-400 fade-in-up text-center">
+      CITIZEN MODE
+    </h1>
+
+    <p class="mb-6 text-gray-200 text-center fade-in-up">
+      Submit your complaints and updates about natural disasters, environmental
+      pollution, and habitat crises to draw the attention of the concerned
+      authority.
+    </p>
+
+    <form id="citizenForm" class="space-y-6 bg-[#0D1B2A]/80 p-8 rounded-2xl shadow-2xl fade-in-up">
+      <div>
+        <label class="block mb-1 font-semibold text-gray-200">Enter your NID (optional)</label>
+        <input type="text" id="nid" placeholder="Leave blank if you want to stay anonymous"
+          class="input input-bordered w-full bg-slate-800 border-slate-700 text-white" />
+      </div>
+
+      <div>
+        <label class="block mb-1 font-semibold text-gray-200">Email (for updates)</label>
+        <input type="email" id="mail" placeholder="your@email.com"
+          class="input input-bordered w-full bg-slate-800 border-slate-700 text-white" />
+      </div>
+
+      <div>
+        <label class="block mb-1 font-semibold text-gray-200">Area</label>
+        <input type="text" id="area" placeholder="e.g. Dhaka, Bangladesh"
+          class="input input-bordered w-full bg-slate-800 border-slate-700 text-white" />
+      </div>
+
+      <div>
+        <label class="block mb-1 font-semibold text-gray-200">Problem Type</label>
+        <select id="problemType" class="select select-bordered w-full bg-slate-800 border-slate-700 text-white">
+          <option value="air">Air Quality</option>
+          <option value="water">Waterlogging / Flooding</option>
+          <option value="waste">Waste / Garbage</option>
+          <option value="green">Green Space / Trees</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block mb-1 font-semibold text-gray-200">Problem in Details</label>
+        <textarea id="problem" rows="5" placeholder="Describe the issue in detail..."
+          class="textarea textarea-bordered w-full bg-slate-800 border-slate-700 text-white"></textarea>
+      </div>
+
+      <div>
+        <label class="block mb-1 font-semibold text-gray-200">Upload Photo (optional)</label>
+        <input type="file" id="photo"
+          class="file-input file-input-bordered w-full bg-slate-800 border-slate-700 text-white" />
+      </div>
+
+      <button type="submit" class="btn btn-success w-full bg-green-500 border-green-500 hover:bg-green-600">
+        Submit Report
+      </button>
+    </form>
+
+    <div id="thankYou" class="hidden mt-6 p-4 bg-green-600 rounded-lg text-white font-semibold fade-in-up">
+      ✅ Thank you! Your report has been submitted successfully.
+    </div>
+
+    <p id="motivation" class="mt-12 text-center text-lg text-gray-200 fade-in-up">
+      Your information could add perspective to experts’ decisions and help us
+      understand field situations better.
+    </p>
+  </main>
+
+  <script>
+    document
+      .getElementById("citizenForm")
+      .addEventListener("submit", function (e) {
+        e.preventDefault();
+        // grab form data
+        const nid = document.getElementById("nid").value;
+        const mail = document.getElementById("mail").value;
+        const area = document.getElementById("area").value;
+        const problemType = document.getElementById("problemType").value;
+        const problem = document.getElementById("problem").value;
+        const photo = document.getElementById("photo").files[0];
+        console.log({ nid, mail, area, problemType, problem, photo });
+
+        // reset and show thank you
+        this.reset();
+        document.getElementById("thankYou").classList.remove("hidden");
+      });
+  </script>
+</body>
+
+</html>
