@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CityLens | Urban Planning</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Montserrat:wght@400;600;800&family=Poppins:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="../tailwind.css">
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+    }
+
+    .logo-font {
+      font-family: "Orbitron", sans-serif;
+      letter-spacing: 2px;
+    }
+
+    .title-font {
+      font-family: "Orbitron", sans-serif;
+    }
+
+    /* Extra animations */
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .float {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 1s ease-out forwards;
+    }
+  </style>
+</head>
+
+<body class="text-gray-200 bg-gradient-to-b from-[#0B3D91] via-[#100D0E] to-[#090040]">
+    <!-- navbar -->
+  <header class="bg-gradient-to-r from-[#000000] via-[#131621] to-[#000000] shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center p-2">
+      <!-- Logo -->
+      <div class="flex justify-center items-center gap-2">
+        <img class="h-12 w-12 text-center" src="./images/logo4.png" alt="">
+        <h1 class="text-2xl font-extrabold tracking-wider text-white logo-font">
+          City<span class="text-red-500">L</span>ens
+        </h1>
+      </div>
+
+      <!-- Search (hidden on mobile) -->
+      <label class="input hidden sm:flex items-center gap-2 bg-white/90 rounded-full px-4 h-8 border-none shadow-sm">
+        <svg class="h-4 w-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <circle cx="11" cy="11" r="8" stroke-width="2" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" stroke-width="2" />
+        </svg>
+        <input type="search" placeholder="Search region…"
+          class="bg-transparent text-gray-700 placeholder-gray-500 outline-none" />
+      </label>
+
+      <!-- Hamburger Button -->
+      <button id="mobile-menu-button" class="block md:hidden text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+      <!-- Nav Links -->
+      <div id="mobile-menu" class="hidden md:block">
+        <ul class="flex flex-col md:flex-row gap-6 font-medium text-white text-sm mt-2 md:mt-0">
+          <li><a href="index.html" id="nav-dashboard" class="hover:text-red-400 transition-colors">Dashboard</a></li>
+          <li><a href="map.html" id="nav-map" class="hover:text-red-400 transition-colors">Map View</a></li>
+          <li><a href="analytics.html" id="nav-analytics" class="hover:text-red-400 transition-colors">Analytics</a></li>
+          <li><a href="reports.html" id="nav-reports" class="hover:text-red-400 transition-colors">Reports</a></li>
+          <li><a href="citizen.html" class="hover:text-red-400 transition-colors">Citizen Mode</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- hero section -->
+  <section class="relative h-[85vh] flex items-center justify-center text-center">
+    <!-- background -->
+    <div class="absolute inset-0 bg-[url('./images/city.jpg')] bg-cover bg-center"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#000000]/100 via-[#000000]/40 to-[#131621]/100"></div>
+
+    <!-- content -->
+    <div class="relative z-10 px-6 text-center flex flex-col justify-center items-center space-y-4">
+      <h1 class="text-6xl md:text-7xl font-extrabold tracking-wide text-white fade-in-up title-font">
+        Urban Planning Dashboard
+      </h1>
+      <div>
+        <p class="text-xl font-medium text-gray-200 max-w-2xl mx-auto fade-in-up">
+          Monitor <span class="text-blue-400">Population</span>,
+          <span class="text-green-300">Greenery</span>, &
+          <span class="text-red-400">Air Quality</span> across Bangladesh.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- map + stats -->
+  <section class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center px-6 py-16 gap-12 my-12">
+    <!-- map -->
+    <div class="max-w-[550px] w-full float">
+      <img src="./images/map.svg" alt="Bangladesh Map" class="p-4 shadow-2xl border border-gray-800 float" />
+    </div>
+
+    <!-- stat cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+      <div
+        class="bg-[#121434] hover:bg-[#393E46] hover:rounded-2xl p-8 shadow-lg hover:shadow-blue-400/30 hover:scale-105 transition fade-in-up">
+        <h3 class="text-xl font-semibold">Population</h3>
+        <h1 class="text-5xl font-extrabold text-sky-400 mt-2 title-font">
+          21M
+        </h1>
+        <p class="mt-1">Current Population</p>
+      </div>
+
+      <div
+        class="bg-[#121434] hover:bg-[#393E46] hover:rounded-2xl p-8 shadow-lg hover:shadow-green-400/30 hover:scale-105 transition fade-in-up">
+        <h3 class="text-xl font-semibold text-gray-300">Greenery Level</h3>
+        <h1 class="text-5xl font-extrabold text-green-400 mt-2 title-font">
+          32%
+        </h1>
+        <progress class="progress progress-success w-full mt-2" value="32" max="100"></progress>
+      </div>
+
+      <div
+        class="bg-[#121434] hover:bg-[#393E46] hover:rounded-2xl p-8 shadow-lg hover:shadow-red-400/30 hover:scale-105 transition md:col-span-2 fade-in-up">
+        <h3 class="text-xl font-semibold text-gray-300">Air Quality Index</h3>
+        <h1 class="text-5xl font-extrabold text-red-400 mt-2 title-font">
+          152
+        </h1>
+        <p class="text-gray-400">Unhealthy ⚠️</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer class="bg-[#090040] text-white mt-16 p-4">
+    <div class="max-w-7xl mx-auto p-4 flex justify-between items-center text-sm">
+      <p>© 2025 CityLens | Urban Planning</p>
+      <p>Built with 🚀 Sustainable Insights</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+</html>
