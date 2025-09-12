@@ -30,10 +30,10 @@
 
 <body class="text-gray-200 bg-gradient-to-b from-[#000000] via-[#100D0E] to-[#090040]">
   <!-- navbar -->
-  <header class="bg-gradient-to-r from-[#000000] via-[#131621] to-[#000000] shadow-md sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto flex justify-between items-center p-2">
+  <header class="bg-gradient-to-r from-[#000000] via-[#131621] to-[#000000] shadow-md sticky top-0 z-[1000]">
+    <div class="relative max-w-7xl mx-auto flex justify-between items-center p-2">
       <!-- Logo -->
-      <div class="flex justify-center items-center gap-2">
+      <div class="flex justify-center items-center gap-2 p-2 sm:p-0">
         <img class="h-12 w-12 text-center" src="./images/logo4.png" alt="">
         <h1 class="text-2xl font-extrabold tracking-wider text-white logo-font">
           City<span class="text-red-500">L</span>ens
@@ -52,23 +52,25 @@
       </label>
 
       <!-- Hamburger Button -->
-      <button id="mobile-menu-button" class="block md:hidden text-white focus:outline-none">
+      <button id="mobile-menu-button"
+        class="absolute right-4 top-1/2 -translate-y-1/2 block md:hidden text-white focus:outline-none z-[1000]">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
-          </path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
 
       <!-- Nav Links -->
-      <div id="mobile-menu" class="hidden md:block">
-        <ul class="flex flex-col md:flex-row gap-6 font-medium text-white text-sm mt-2 md:mt-0">
-          <li><a href="index.html" id="nav-dashboard" class="hover:text-red-400 transition-colors">Dashboard</a></li>
-          <li><a href="map.html" id="nav-map" class="hover:text-red-400 transition-colors">Map View</a></li>
-          <li><a href="analytics.html" id="nav-analytics" class="hover:text-red-400 transition-colors">Analytics</a></li>
-          <li><a href="reports.html" id="nav-reports" class="hover:text-red-400 transition-colors">Reports</a></li>
-          <li><a href="citizen.html" class="hover:text-red-400 transition-colors">Citizen Mode</a></li>
-        </ul>
-      </div>
+<div id="mobile-menu"
+     class="hidden md:block absolute top-full left-0 w-full bg-[#131621] md:static md:bg-transparent z-[999]">
+  <ul class="flex flex-col md:flex-row gap-6 font-medium text-white text-sm p-4 md:p-0">
+    <li><a href="index.html" id="nav-dashboard" class="hover:text-red-400 transition-colors">Dashboard</a></li>
+    <li><a href="map.html" id="nav-map" class="hover:text-red-400 transition-colors">Map View</a></li>
+    <li><a href="analytics.html" id="nav-analytics" class="hover:text-red-400 transition-colors">Analytics</a></li>
+    <li><a href="reports.html" id="nav-reports" class="hover:text-red-400 transition-colors">Reports</a></li>
+    <li><a href="citizen.html" class="hover:text-red-400 transition-colors">Citizen Mode</a></li>
+  </ul>
+</div>
+
     </div>
   </header>
 
@@ -80,7 +82,7 @@
       mobileMenu.classList.toggle('hidden');
     });
   </script>
-    <!-- Map Section -->
+  <!-- Map Section -->
   <div class="max-w-7xl mx-auto my-8 p-4 rounded-2xl shadow-2xl h-[80vh]">
     <div id="map" class="h-full w-full rounded-2xl"></div>
   </div>
@@ -96,4 +98,5 @@
   <!-- JS -->
   <script src="./map.js"></script>
 </body>
+
 </html>
