@@ -43,10 +43,10 @@ function updateHUD() {
 }
 
 // Sprites
-const treeIcon = L.icon({ iconUrl: './images/tree.png', iconSize: [100, 100] });
+const treeIcon = L.icon({ iconUrl: './images/tree.png', iconSize: [120, 120] });
 const parkIcon = L.icon({ iconUrl: './images/park.png', iconSize: [150, 150] });
-const carIcon = L.icon({ iconUrl: './images/car.png', iconSize: [100, 100] });
-const solarpanelIcon = L.icon({ iconUrl: './images/solar-panel.png', iconSize: [100, 100] });
+const carIcon = L.icon({ iconUrl: './images/car.png', iconSize: [120, 120] });
+const solarpanelIcon = L.icon({ iconUrl: './images/solar-panel.png', iconSize: [120, 120] });
 const buildingIcon = L.icon({ iconUrl: './images/building.png', iconSize: [150, 150] });
 
 // Place item
