@@ -26,7 +26,9 @@
       font-family: "Orbitron", sans-serif;
       letter-spacing: 1px;
     }
-
+    body{
+        font-family: "Poppins", sans-serif;
+    }
     .game-font {
       font-family: 'Press Start 2P', cursive;
     }
@@ -37,7 +39,7 @@
   </style>
 </head>
 
-<body class="bg-gradient-to-b from-[#000000] via-[#100D0E] to-[#090040] text-gray-200">
+<body class="bg-gradient-to-b from-[#2B2B2B] via-[#100D0E] to-[#090040] text-gray-200">
 
     <!-- navbar -->
   <header class="bg-gradient-to-r from-[#000000] via-[#131621] to-[#000000] shadow-md sticky top-0 z-[1000]">
@@ -95,49 +97,76 @@
       mobileMenu.classList.toggle('hidden');
     });
   </script>
+  <!-- Game Rules Section -->
+    <section class="max-w-xl mx-8 sm:mx-auto my-8 sm:my-16 p-8 md:p-12 bg-[#2B2B2B]/70 rounded-2xl text-white">
+    <h2 class="text-xl font-bold game-font text-red-200 mb-4 text-center">Game Rules</h2>
+    <ul class="list-disc list-inside text-sm space-y-3">
+        <li>🌳 <strong>Tree</strong>: -2 Pollution, +2 Happiness, -1 Energy</li>
+        <li>🏞️ <strong>Park</strong>: -5 Pollution, +5 Happiness, -2 Energy</li>
+        <li>🏢 <strong>Building</strong>: +5 Pollution, -3 Happiness, +10 Population, -2 Energy</li>
+        <li>🚗 <strong>Car</strong>: +3 Pollution, -2 Happiness, +5 Population, -1 Energy</li>
+        <li>☀️ <strong>Solar Panel</strong>: -3 Pollution, +2 Happiness, -2 Energy</li>
+        <li>⚡ Every action consumes <strong>Energy</strong>. Game ends when energy = 0.</li>
+        <li>🎯 <strong>Win Condition</strong>: Pollution ≤ 0 and Happiness ≥ 80</li>
+        <li>💀 <strong>Game Over</strong>: Happiness ≤ 0 or Energy = 0 without winning</li>
+    </ul>
+    </section>
 
-  <!-- Game Title -->
-  <h1 class="mt-16 game-font text-3xl md:text-4xl text-yellow-500 mb-4 text-center">GAME</h1>
-
-  <!-- Map container -->
-  <div class="max-w-7xl mx-auto my-8 p-2 md:p-4 rounded-2xl h-[60vh] md:h-[80vh]">
-    <div id="map" class="h-full w-full rounded-2xl"></div>
-  </div>
-
-  <!-- HUD + Place Items -->
-  <section class="game-font max-w-7xl mx-auto p-2 md:p-4">
-    <div class="hud flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-
-      <!-- Stats -->
-      <div class="stats flex flex-row md:flex-col gap-4 md:gap-8 text-white p-4 md:p-8 w-full md:w-auto justify-around md:justify-start">
-        <h1 class="text-center md:text-left text-xl text-red-400">Stats</h1>
-        <span id="pollution">Pollution: 50</span>
-        <span id="happiness">Happiness: 50</span>
-        <span id="population">Population: 0</span>
-        <span id="energy">Energy: 20</span>
-      </div>
-
-      <!-- Place Items Buttons -->
-      <div class="bg-gray-400 p-4 md:p-8 btn-group rounded-2xl w-full md:w-auto flex flex-col gap-4">
-        <h1 class="text-center text-xl text-green-800 font-bold mb-2 md:mb-4">Place Items</h1>
-
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-          <button class="p-4 md:p-6 btn btn-active btn-primary hover:bg-blue-500 hover:text-white hover:scale-125 hover:shadow-2xl transition-transform transition-colors duration-300 ease-in-out" data-action="tree">Tree</button>
-
-          <button class="p-4 md:p-6 btn btn-active btn-primary hover:bg-green-500 hover:text-white hover:scale-125 hover:shadow-2xl transition-transform transition-colors duration-300 ease-in-out" data-action="park">Park</button>
-
-          <button class="p-4 md:p-6 btn btn-active btn-primary hover:bg-yellow-500 hover:text-white hover:scale-125 hover:shadow-2xl transition-transform transition-colors duration-300 ease-in-out" data-action="building">Building</button>
-
-          <button class="p-4 md:p-6 btn btn-active btn-primary hover:bg-pink-500 hover:text-white hover:scale-125 hover:shadow-2xl transition-transform transition-colors duration-300 ease-in-out" data-action="car">Car</button>
-
-          <button class="p-4 md:p-6 btn btn-active btn-primary hover:bg-orange-500 hover:text-white hover:scale-125 hover:shadow-2xl transition-transform transition-colors duration-300 ease-in-out" data-action="solar">Solar</button>
-
-          <button class="p-4 md:p-6 font-semibold bg-red-600 text-white reset btn btn-active btn-error hover:bg-red-800 hover:scale-125 hover:shadow-2xl transition-transform transition-colors duration-300 ease-in-out" id="resetBtn">Reset</button>
-        </div>
-      </div>
-
+    <!-- Map container -->
+    <div class="max-w-7xl mx-auto my-8 p-2 md:p-4 rounded-2xl h-[80vh]">
+        <div id="map" class="h-full w-full rounded-2xl"></div>
     </div>
-  </section>
+
+    
+
+    <section class="game-font max-w-7xl mx-auto p-2 md:p-4 rounded-2x">
+        <!-- HUD container -->
+        <div class="hud text-sm md:text-lg flex flex-col md:flex-row justify-center mx-auto items-center sm:mb-16 p-4 md:p-8 gap-8 sm:gap-16">
+
+            <!-- Stats -->
+            <div
+                class="bg-[#363751] rounded-2xl stats flex flex-row md:flex-col gap-4 md:gap-8 text-white p-4 md:px-16 md:py-8 w-full md:w-auto justify-around md:justify-start">
+                <h1 class="text-center md:text-left text-xl md:text-xl text-red-300">Stats</h1>
+                <div class="flex flex-col space-y-2">
+                    <span id="pollution">Pollution: 50</span>
+                    <span id="happiness">Happiness: 50</span>
+                    <span id="population">Population: 0</span>
+                    <span id="energy">Energy: 20</span>
+                </div>
+            </div>
+
+            <div class="bg-[#363751] p-4 md:p-8 btn-group rounded-2xl w-full md:w-auto flex flex-col gap-4 md:gap-8">
+                <h1 class="text-center text-xl text-green-300 font-bold mb-2 md:mb-4">Place Items</h1>
+
+                <!-- Buttons container -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <button
+                        class="p-4 md:p-6 btn btn-active btn-primary tree hover:bg-blue-500 hover:text-white hover:scale-125 hover:shadow-2xl transition-transform transition-colors duration-300 ease-in-out"
+                        data-action="tree">Tree</button>
+
+                    <button
+                        class="p-4 md:p-6 btn btn-active btn-primary park hover:bg-green-500 hover:text-white hover:scale-125 hover:shadow-2xl transition-transform transition-colors duration-300 ease-in-out"
+                        data-action="park">Park</button>
+
+                    <button
+                        class="p-4 md:p-6 btn btn-active btn-primary building hover:bg-yellow-500 hover:text-white hover:scale-125 hover:shadow-2xl transition-transform transition-colors duration-300 ease-in-out"
+                        data-action="building">Building</button>
+
+                    <button
+                        class="p-4 md:p-6 btn btn-active btn-primary car hover:bg-pink-500 hover:text-white hover:scale-125 hover:shadow-2xl transition-transform transition-colors duration-300 ease-in-out"
+                        data-action="car">Car</button>
+
+                    <button
+                        class="p-4 md:p-6 btn btn-active btn-primary solar hover:bg-orange-500 hover:text-white hover:scale-125 hover:shadow-2xl transition-transform transition-colors duration-300 ease-in-out"
+                        data-action="solar">Solar</button>
+
+                    <button
+                        class="p-4 md:p-6 font-semibold bg-red-600 text-white reset btn btn-active btn-error hover:bg-red-800 hover:scale-125 hover:shadow-2xl transition-transform transition-colors duration-300 ease-in-out"
+                        id="resetBtn">Reset</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
   <!-- Footer -->
   <footer class="bg-[#090040] text-white mt-8 p-4">
@@ -146,19 +175,6 @@
       <p>Built with 🚀 Sustainable Insights</p>
     </div>
   </footer>
-
-  <!-- Scripts -->
-  <script>
-    // Hamburger toggle
-    const menuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    menuButton.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      mobileMenu.classList.toggle('flex');
-      mobileMenu.classList.toggle('flex-col');
-    });
-  </script>
 
   <script src="./game.js"></script>
 </body>
