@@ -98,15 +98,16 @@
 
       <!-- Nav Links -->
       <div id="mobile-menu"
-  class="hidden md:flex md:items-center md:gap-6 font-medium text-white text-sm md:static md:w-auto md:bg-transparent absolute top-full left-0 w-full bg-[#131621]">
-  <ul class="flex flex-col md:flex-row md:gap-6 gap-4 p-4 md:p-0">
-    <li><a href="index.html" id="nav-dashboard" class="hover:text-red-400 transition-colors">Dashboard</a></li>
-    <li><a href="map.html" id="nav-map" class="hover:text-red-400 transition-colors">Map View</a></li>
-    <li><a href="analytics.html" id="nav-analytics" class="hover:text-red-400 transition-colors">Analytics</a></li>
-    <li><a href="reports.html" id="nav-reports" class="hover:text-red-400 transition-colors">Reports</a></li>
-    <li><a href="citizen.html" class="hover:text-red-400 transition-colors">Citizen Mode</a></li>
-  </ul>
-</div>
+        class="hidden md:flex md:items-center md:gap-6 font-medium text-white text-sm md:static md:w-auto md:bg-transparent absolute top-full left-0 w-full bg-[#131621]">
+        <ul class="flex flex-col md:flex-row md:gap-6 gap-4 p-4 md:p-0">
+          <li><a href="index.html" id="nav-dashboard" class="hover:text-red-400 transition-colors">Dashboard</a></li>
+          <li><a href="map.html" id="nav-map" class="hover:text-red-400 transition-colors">Map View</a></li>
+          <li><a href="analytics.html" id="nav-analytics" class="hover:text-red-400 transition-colors">Analytics</a>
+          </li>
+          <li><a href="reports.html" id="nav-reports" class="hover:text-red-400 transition-colors">Reports</a></li>
+          <li><a href="citizen.html" class="hover:text-red-400 transition-colors">Citizen Mode</a></li>
+        </ul>
+      </div>
     </div>
   </header>
 
@@ -129,7 +130,7 @@
     <!-- content -->
     <div class="relative z-10 px-6 text-center flex flex-col justify-center items-center space-y-4">
       <h1 class="text-6xl md:text-7xl font-extrabold tracking-wide text-white fade-in-up title-font">
-        Urban Planning Dashboard
+        Urban Planning <span class="text-[#F8DF79]">Dashboard</span>
       </h1>
       <div>
         <p class="text-xl font-medium text-gray-200 max-w-2xl mx-auto fade-in-up">
@@ -144,14 +145,14 @@
   <!-- map + stats -->
   <section class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center px-6 py-16 gap-12 my-12">
     <!-- map -->
-    <div class="max-w-[550px] w-full float">
-      <img src="./images/map.svg" alt="Bangladesh Map" class="p-4 shadow-2xl border border-gray-800 float" />
+    <div class="max-w-[550px] w-full float rounded-2xl hover:bg-[#1E2128]">
+      <img src="./images/map.svg" alt="Bangladesh Map" class="p-4 shadow-2xl border rounded-2xl border-gray-800 float" />
     </div>
 
     <!-- stat cards -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
       <div
-        class="bg-[#121434] hover:bg-[#393E46] hover:rounded-2xl p-8 shadow-lg hover:shadow-blue-400/30 hover:scale-105 transition fade-in-up">
+        class="bg-[#1E2128] hover:bg-[#393E46] rounded-2xl hover:rounded-2xl p-8 shadow-lg hover:shadow-blue-400/30 hover:scale-105 transition fade-in-up">
         <h3 class="text-xl font-semibold">Population</h3>
         <h1 class="text-5xl font-extrabold text-sky-400 mt-2 title-font">
           21M
@@ -160,7 +161,7 @@
       </div>
 
       <div
-        class="bg-[#121434] hover:bg-[#393E46] hover:rounded-2xl p-8 shadow-lg hover:shadow-green-400/30 hover:scale-105 transition fade-in-up">
+        class="bg-[#1E2128] hover:bg-[#393E46] rounded-2xl hover:rounded-2xl p-8 shadow-lg hover:shadow-green-400/30 hover:scale-105 transition fade-in-up">
         <h3 class="text-xl font-semibold text-gray-300">Greenery Level</h3>
         <h1 class="text-5xl font-extrabold text-green-400 mt-2 title-font">
           32%
@@ -169,7 +170,7 @@
       </div>
 
       <div
-        class="bg-[#121434] hover:bg-[#393E46] hover:rounded-2xl p-8 shadow-lg hover:shadow-red-400/30 hover:scale-105 transition md:col-span-2 fade-in-up">
+        class="bg-[#1E2128] hover:bg-[#393E46] rounded-2xl hover:rounded-2xl p-8 shadow-lg hover:shadow-red-400/30 hover:scale-105 transition md:col-span-2 fade-in-up">
         <h3 class="text-xl font-semibold text-gray-300">Air Quality Index</h3>
         <h1 class="text-5xl font-extrabold text-red-400 mt-2 title-font">
           152

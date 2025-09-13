@@ -15,12 +15,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;600&display=swap"
     rel="stylesheet" />
+  <link href="https://fonts.cdnfonts.com/css/gerion" rel="stylesheet">
 
   <style>
     body {
       font-family: "Poppins", sans-serif;
     }
-
     .logo-font {
       font-family: "Orbitron", sans-serif;
       letter-spacing: 2px;
@@ -103,39 +103,39 @@
   </script>
 
   <!-- Citizen Reporting Section -->
-  <main class="max-w-5xl mx-auto px-6 py-12">
-    <h1 class="text-5xl font-bold mb-8 title-font text-green-400 fade-in-up text-center">
-      CITIZEN MODE
+  <main class="max-w-5xl mx-auto px-6">
+    <h1 class="text-5xl font-bold my-12 title-font text-white fade-in-up text-center">
+      Citizen <span class="text-[#F1A06C]">Mode</span>
     </h1>
 
-    <p class="mb-6 text-gray-200 text-center fade-in-up">
+    <p class="mb-12 text-gray-200 text-center fade-in-up">
       Submit your complaints and updates about natural disasters, environmental
       pollution, and habitat crises to draw the attention of the concerned
       authority.
     </p>
 
-    <form id="citizenForm" class="space-y-6 bg-[#0D1B2A]/80 p-8 rounded-2xl shadow-2xl fade-in-up">
+    <form id="citizenForm" class="space-y-6 bg-[#1E2128]/80 p-8 sm:p-12 rounded-3xl shadow-2xl fade-in-up">
       <div>
         <label class="block mb-1 font-semibold text-gray-200">Enter your NID (optional)</label>
         <input type="text" id="nid" placeholder="Leave blank if you want to stay anonymous"
-          class="input input-bordered w-full bg-slate-800 border-slate-700 text-white" />
+          class="input input-bordered w-full bg-[#2B2B2B] text-white" />
       </div>
 
       <div>
         <label class="block mb-1 font-semibold text-gray-200">Email (for updates)</label>
         <input type="email" id="mail" placeholder="your@email.com"
-          class="input input-bordered w-full bg-slate-800 border-slate-700 text-white" />
+          class="input input-bordered w-full bg-[#2B2B2B] text-white" />
       </div>
 
       <div>
         <label class="block mb-1 font-semibold text-gray-200">Area</label>
         <input type="text" id="area" placeholder="e.g. Dhaka, Bangladesh"
-          class="input input-bordered w-full bg-slate-800 border-slate-700 text-white" />
+          class="input input-bordered w-full bg-[#2B2B2B] text-white" />
       </div>
 
       <div>
         <label class="block mb-1 font-semibold text-gray-200">Problem Type</label>
-        <select id="problemType" class="select select-bordered w-full bg-slate-800 border-slate-700 text-white">
+        <select id="problemType" class="select select-bordered w-full bg-[#2B2B2B] text-white">
           <option value="air">Air Quality</option>
           <option value="water">Waterlogging / Flooding</option>
           <option value="waste">Waste / Garbage</option>
@@ -147,16 +147,16 @@
       <div>
         <label class="block mb-1 font-semibold text-gray-200">Problem in Details</label>
         <textarea id="problem" rows="5" placeholder="Describe the issue in detail..."
-          class="textarea textarea-bordered w-full bg-slate-800 border-slate-700 text-white"></textarea>
+          class="textarea textarea-bordered w-full bg-[#2B2B2B] text-white"></textarea>
       </div>
 
       <div>
         <label class="block mb-1 font-semibold text-gray-200">Upload Photo (optional)</label>
         <input type="file" id="photo"
-          class="file-input file-input-bordered w-full bg-slate-800 border-slate-700 text-white" />
+          class="file-input file-input-bordered w-full bg-[#2B2B2B] text-white" />
       </div>
 
-      <button type="submit" class="btn btn-success w-full bg-green-500 border-green-500 hover:bg-green-600">
+      <button type="submit" class="btn btn-success w-full bg-[#C3F17D] hover:bg-[#ADD66F]">
         Submit Report
       </button>
     </form>
@@ -165,11 +165,19 @@
       ✅ Thank you! Your report has been submitted successfully.
     </div>
 
-    <p id="motivation" class="mt-12 text-center text-lg text-gray-200 fade-in-up">
+    <p id="motivation" class="m-12 text-center text-gray-200 fade-in-up">
       Your information could add perspective to experts’ decisions and help us
       understand field situations better.
     </p>
   </main>
+
+    <!-- footer -->
+  <footer class="bg-[#090040] text-white mt-16 p-4">
+    <div class="max-w-7xl mx-auto p-4 flex justify-between items-center text-sm">
+      <p>© 2025 CityLens | Urban Planning</p>
+      <p>Built with 🚀 Sustainable Insights</p>
+    </div>
+  </footer>
 
   <script>
     document
